@@ -24,7 +24,7 @@ export default function Dashboard() {
         <div className=" p-10  flex flex-wrap flex-col w-full ">
             <div className="flex  w-full justify-center items-center space-y-10 md:space-y-0 md:space-x-10 flex-wrap">
               {/* card 01 */}
-              <div className=" flex-col   bg-blue-100  w-56 h-28 sm:w-auto justify-start sm:justify-start border-b-2   inline-flex  leading-none tracking-wider rounded-t border  border-b-blue-600 shadow-2xl rounded-md">
+              <div className={` flex-col   ${totalBalance() < 0? 'bg-red-500 text-white animate-pulse':'bg-blue-100'}  w-56 h-28 sm:w-auto justify-start sm:justify-start border-b-2   inline-flex  leading-none tracking-wider rounded-t border  border-b-blue-600 shadow-2xl rounded-md`}>
                 <a className="sm:px-6 py-3 p-4 tracking-wider mx-12 mt-0 title-font font-medium m-2"
                 >
                 Current Balance 

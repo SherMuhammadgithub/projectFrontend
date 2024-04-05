@@ -137,9 +137,7 @@ const deleteExpenses = async (id) => {
     }
     const totalBalance = () => {
        let totalBalance = totalIncome() - totalExpense();
-       if(totalBalance < 0)
-       return 0;
-    return totalBalance
+       return totalBalance;
     }
     return (
         <GlobalContext.Provider value={{
