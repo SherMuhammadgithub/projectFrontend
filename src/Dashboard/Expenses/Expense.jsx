@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../GlobalData/globalContext'
 import IncomeItem from '../Incomes/IncomeItem';
 import ExpenseFrom from './AddExpense';
+import { dateFormat } from '../GlobalData/dateFormat';
 
 export default function Expense() {
   const [category, setCategory] = useState('');
@@ -59,7 +60,7 @@ export default function Expense() {
      
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-32">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-base text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-16 py-3">
                     <span class="sr-only">Image</span>
@@ -91,7 +92,7 @@ export default function Expense() {
             title={title}
             description={description}
             amount={amount}
-            date={date}
+            date={dateFormat(date)}
             type={type}
             category={category}
             indicatorColor="var(--color-green)"

@@ -3,6 +3,7 @@ import { useGlobalContext } from '../GlobalData/globalContext'
 import Form from './AddIncome';
 import IncomeItem from './IncomeItem';
 import { dateFormat } from '../GlobalData/dateFormat';
+import { dollar } from '../GlobalData/Icons';
 
 export default function Income() {
   const [category, setCategory] = useState('');
@@ -18,6 +19,7 @@ export default function Income() {
 
   return (
     <section className='animate__animated animate__fadeIn'>
+     
       <div className="header flex items-center w-full p-6 border-b border-white text-white">
     <div className="w-1/2"><h1 className='text-4xl font-bold text-[#07271f]' style={{fontFamily:'Kaushan Script'}}>Incomes</h1></div>
     <div className="w-1/2 flex justify-end items-center">
@@ -60,9 +62,10 @@ export default function Income() {
       </div>
 </div>
       {/* Income Content */}
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-32">
+      <div class="relative overflow-x-auto shadow-2xl sm:rounded-lg mx-32">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-base
+         text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-16 py-3">
                     <span class="sr-only">Image</span>

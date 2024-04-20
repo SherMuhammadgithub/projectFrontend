@@ -53,7 +53,7 @@ function Chart() {
     }
 
     return (
-        <div className=' w-full flex justify-center items-center bg-white shadow-2xl rounded-md h-96 py-4'>
+        <div className=' w-full flex justify-center items-center bg-white shadow-2xl rounded-md h-96 p-8 '>
             <Line data={data} />
         </div>
     )
