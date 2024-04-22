@@ -4,10 +4,11 @@ import Dashboard from "./Dashboard";
 import Income from "./Incomes/Income";
 import Expense from "./Expenses/Expense";
 import Form from "./Incomes/AddIncome";
-import Notification from "./Notification";
+import Notification from "./notification/Notification";
 import Goals from "./Goals/Goals";
 import GoalsLayout from "./Goals/GoalsLayout";
 import Profile from "./Profile/Profile";
+import NotificationLayout from "./notification/NotificationLayout";
 
 export default function MainDashboard() {
   const displayData = () => {
@@ -21,7 +22,7 @@ export default function MainDashboard() {
       case 4:
         return <Expense />;
       case 5:
-        return <Notification />;
+        return <NotificationLayout />;
       default:
         return <Profile />;
     }

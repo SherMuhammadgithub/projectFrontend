@@ -6,7 +6,7 @@ import Goals from "./Goals";
 
 export default function GoalsLayout() {
   return (
-    <main>
+    <main className="animate__animated animate__fadeIn">
       <div className="flex justify-center items-center w-full space-x-10 my-16">
         <div className="chart-container">
           <GoalsChart />
