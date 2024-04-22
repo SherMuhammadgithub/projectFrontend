@@ -2,15 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { useGlobalContext } from "./GlobalData/globalContext";
 import Expense from "./Expenses/Expense";
+import { historyIcon } from "./GlobalData/Icons";
 
 function History() {
   const { transactionHistory } = useGlobalContext();
 
   const [...history] = transactionHistory();
-  const srcIncome =
-    "https://img.icons8.com/?size=80&id=lFYD3Yo9ave4&format=png";
-  const srcExpense =
-    "https://img.icons8.com/?size=80&id=xlaF32F7JR0P&format=png";
   return (
     <>
       {history.map((item) => {
@@ -21,19 +18,15 @@ function History() {
               href="#"
               class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              <img
-                class="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0"
-                src={srcIncome}
-                alt="Bonnie Green image"
-              />
+              <div className="mx-3 text-xl bg-[#07271f] text-white w-10 h-10 rounded-full flex justify-center items-center">{historyIcon}</div>
               <div>
                 <div class="text-base font-normal text-gray-600 dark:text-gray-400">
-                  <span class="font-medium text-gray-900 dark:text-white ">
+                  <span class="font-extrabold text-lg text-gray-900 dark:text-white">
                     {title}
                   </span>
                 </div>
-                <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
-                  {description} - ${amount}
+                <span class="inline-flex items-center text-xs font-normal text-gray-500 font-serif dark:text-gray-400">
+                  <p className="text-xs italic">{description}</p> - <span  className="font-bold  text-base">${amount}</span>
                 </span>
               </div>
             </a>

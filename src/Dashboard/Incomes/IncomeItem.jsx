@@ -7,8 +7,11 @@ import {
   clothing,
   comment,
   dollar,
+  expense,
+  expenses,
   food,
   freelance,
+  income,
   medical,
   money,
   piggy,
@@ -76,14 +79,13 @@ export default function IncomeItem({
     }
   };
 
-  console.log("type", type);
   return (
     <>
       <tr class="bg-white border-b text-base  dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         <td class="p-4 flex items-center">
           <div className="mx-3 text-xl bg-[#07271f] text-white w-10 h-10 rounded-full flex justify-center items-center">
             {" "}
-            {type === "Expense" ? expenseCatIcon() : categoryIcon()}
+            {expenses}
           </div>
           <div>{description}</div>
         </td>

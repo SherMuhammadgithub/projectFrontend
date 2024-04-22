@@ -3,8 +3,14 @@ import Chart from "../Chart";
 import GoalsAside from "./GoalsAside";
 import GoalsChart from "./GoalsChart";
 import Goals from "./Goals";
+import { useGlobalContext } from "../GlobalData/globalContext";
+import { dateFormat } from "../GlobalData/dateFormat";
 
 export default function GoalsLayout() {
+  const { user, getGoals, goals } = useGlobalContext();
+  React.useEffect(() => {
+    getGoals();
+  }, [user.id]);
   return (
     <main className="animate__animated animate__fadeIn">
       <div className="flex justify-center items-center w-full space-x-10 my-16">
@@ -12,14 +18,11 @@ export default function GoalsLayout() {
           <GoalsChart />
         </div>
         <div className="total-goals-container">
-          <GoalsAside />
+          <GoalsAside totalGoals={goals.length} />
         </div>
       </div>
       <footer>
-        <div
-          className="goals-container bg-transparent overflow-y-scroll p-10 h-60 rounded-md mx-10 shadow-2xl"
-          style={{ scrollbarWidth: "none" }}
-        >
+        <div className="goals-container bg-transparent  p-10 h-60 rounded-md mx-10 shadow-2xl">
           <header className="flex justify-center items-center  ">
             <div className="title">
               <h1
@@ -35,14 +38,17 @@ export default function GoalsLayout() {
               </button>
             </div>
           </header>
-          <div class="relative overflow-x-auto shadow-2xl sm:rounded-lg mx-32">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <div
+            class="relative overflow-x-auto overflow-y-scroll h-[7.8rem] shadow-2xl sm:rounded-lg mx-32"
+            style={{ scrollbarWidth: "none" }}
+          >
+            <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 relative">
               <thead
                 class="text-base
-         text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400"
+         text-white uppercase bg-[#07271f] sticky top-0 dark:bg-gray-700 dark:text-gray-400"
               >
-                <tr>
-                  <th scope="col" class="px-16 py-3">
+                <tr className="">
+                  <th scope="col" class="px-16 py-3 ">
                     <span class="sr-only">Image</span>
                   </th>
                   <th scope="col" class="px-6 py-3">
@@ -60,7 +66,19 @@ export default function GoalsLayout() {
                 </tr>
               </thead>
               <tbody>
-                <Goals />
+                {goals.map((goal) => {
+                  const { id, title, amount, description, createdAt } = goal;
+                  return (
+                    <Goals
+                      key={id}
+                      id={id}
+                      title={title}
+                      description={description}
+                      amount={amount}
+                      createdAt={dateFormat(createdAt)}
+                    />
+                  );
+                })}
               </tbody>
             </table>
           </div>

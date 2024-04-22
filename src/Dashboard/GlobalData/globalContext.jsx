@@ -10,6 +10,7 @@ export const GlobalProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState([]);
   const [notification, setNotification] = useState([]);
+  const [goals, setGoals] = useState([]);
 
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("users")) || null
@@ -169,7 +170,7 @@ export const GlobalProvider = ({ children }) => {
       setUser(response.data);
       localStorage.setItem("users", JSON.stringify(response.data.user));
       // reload the page
-        window.location.reload();
+      window.location.reload();
     }
   };
   const addCategory = async (category) => {
@@ -217,13 +218,23 @@ export const GlobalProvider = ({ children }) => {
         alert(err.response.data.message);
       });
     if (response && response.data) {
-      alert(notification);
+      alert(notification.message);
     }
   };
   const deleteNotification = async (id) => {
     const response = await axios.delete(`${BASE_URL}delete-notification/${id}`);
     getNotification();
   };
+
+  const getGoals = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}get-goal/${user.id}`);
+      setGoals(response.data);
+    } catch (error) {
+      console.error("Error fetching goals:", error);
+    }
+  };
+
   const totalIncome = () => {
     let total = 0;
     incomes.forEach((income) => {
@@ -277,7 +288,9 @@ export const GlobalProvider = ({ children }) => {
         notification,
         sendNotification,
         deleteNotification,
-        updateUser
+        updateUser,
+        getGoals,
+        goals,
       }}
     >
       {children}

@@ -20,7 +20,7 @@ function Navigation({ active, setActive }) {
             <div className='absolute top-80 left-1 rotate-90 hidden md:block font-protest-riot'>
                 <h1 className='font-extrabold text-7xl text-white ' style={{fontFamily:'Kaushan Script',letterSpacing:"4px"}}>Xpense</h1>
             </div>
-        <NavStyled className={`bg-[#07271f] absolute md:relative  h-screen z-20  text-white  space-y-10 p-12  rounded-lg mt-2 mr-2 mb-2 overflow-y-auto transition-all duration-500 ${click?"translate-x-[100]":"translate-x-[-100%]"}`}   >
+        <NavStyled className={`bg-[#07271f] font-serif absolute md:relative  h-screen z-20  text-white  space-y-10 p-12  rounded-lg mt-2 mr-2 mb-2 overflow-y-auto transition-all duration-500 ${click?"translate-x-[100]":"translate-x-[-100%]"}`}   >
            
             <div className="user-con">
                 <div className="text-white ">
