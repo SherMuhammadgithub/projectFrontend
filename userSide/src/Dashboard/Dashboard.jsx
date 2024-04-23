@@ -32,8 +32,7 @@ export default function Dashboard() {
         if (totalBalance() > 230000) {
           message = "Your balance is high, Seems like you are doing well";
         }
-        if(message !== "")
-        createNotification(message);
+        if (message !== "") createNotification(message);
         localStorage.setItem("totalBalance", totalBalance());
       };
       thrsholdCheck();
@@ -62,14 +61,14 @@ export default function Dashboard() {
           </h1>
         </div>
         <div className="">
-          <form class="flex items-center max-w-sm mx-auto">
-            <label for="simple-search" class="sr-only">
+          <form className="flex items-center max-w-sm mx-auto">
+            <label for="simple-search" className="sr-only">
               Search
             </label>
-            <div class="relative w-full">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <div className="relative w-full">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -87,17 +86,17 @@ export default function Dashboard() {
               <input
                 type="text"
                 id="simple-search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500  focus:border-green-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500  focus:border-green-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
                 placeholder="Search branch name..."
                 required
               />
             </div>
             <button
               type="submit"
-              class="p-2.5 ms-2 text-sm font-medium text-white bg-[#07271f] rounded-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-500 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              className="p-2.5 ms-2 text-sm font-medium text-white bg-[#07271f] rounded-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-500 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
             >
               <svg
-                class="w-4 h-4"
+                className="w-4 h-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -111,7 +110,7 @@ export default function Dashboard() {
                   d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                 />
               </svg>
-              <span class="sr-only">Search</span>
+              <span className="sr-only">Search</span>
             </button>
           </form>
         </div>
@@ -130,26 +129,21 @@ export default function Dashboard() {
         </div>
         <div className="col02 w-[40%] h-auto">
           <div className="flex flex-col justify-center items-center space-y-4">
-            <div className="income flex justify-center items-center space-x-10 bg-green-500 p-8 w-72 rounded-md shadow-2xl mx-4 text-white">
-              <h1 className="text-2xl">Income</h1>
-              <h1 className="text-2xl">
-                {dollar}
-                {totalIncome()}
-              </h1>
+            <div className="group w-72 rounded-lg bg-green-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_green] flex justify-center items-center space-x-10">
+              <p className="text-white text-2xl">Incomes</p>
+              <p className="text-white text-2xl">${totalIncome()}</p>
             </div>
-            <div className="expense flex justify-center items-center space-x-10 bg-red-500 p-8 w-72 rounded-md shadow-2xl mx-4 text-white">
-              <h1 className="text-2xl">Expense</h1>
-              <h1 className="text-2xl">
-                {dollar}
-                {totalExpense()}
-              </h1>
+            {/* card 02 */}
+            <div
+              className="group w-72 rounded-lg bg-red-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_#690303] flex justify-center items-center space-x-10"
+            >
+              <p className="text-white text-2xl">Expenses</p>
+              <p className="text-white text-2xl">${totalExpense()}</p>
             </div>
-            <div className="balance flex justify-center items-center space-x-10 bg-blue-500 p-8 w-72 rounded-md shadow-2xl mx-4 text-white">
-              <h1 className="text-2xl">Balance</h1>
-              <h1 className="text-2xl">
-                {dollar}
-                {totalBalance()}
-              </h1>
+            {/* card 03 */}
+            <div className="group w-72 rounded-lg bg-blue-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_blue] flex justify-center items-center space-x-10">
+              <p className="text-white text-2xl">Balance</p>
+              <p className="text-white text-2xl">${totalBalance()}</p>
             </div>
           </div>
         </div>
@@ -157,17 +151,13 @@ export default function Dashboard() {
 
       <div className="recent-activity mx-16 flex justify-center items-center space-x-16 mb-4 relative">
         <div
-          class=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 overflow-y-scroll h-44"
+          className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 overflow-y-scroll h-44"
           style={{ scrollbarWidth: "none" }}
         >
-          <time class="text-lg font-semibold text-gray-900  dark:text-white">
-          <h1
-          className="text-2xl font-bold m-4"
-        >
-          Recent Activity
-        </h1>
+          <time className="text-lg font-semibold text-gray-900  dark:text-white">
+            <h1 className="text-2xl font-bold m-4">Recent Activity</h1>
           </time>
-          <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700 ">
+          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700 ">
             <History />
           </ol>
         </div>

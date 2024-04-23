@@ -23,7 +23,7 @@ export default function GoalsAside({ totalGoals }) {
       return "On Track";
     } else if (
       estimatedProgress >= offTrackThreshold &&
-      totalBalance >= goal.amount
+      estimatedProgress < onTrackThreshold
     ) {
       return "Off Track (Funding Available)";
     } else {
@@ -44,21 +44,32 @@ export default function GoalsAside({ totalGoals }) {
 
   return (
     <aside>
-      <div className="container border-2 shadow-2xl bg-white border-gray-300 rounded-md p-6 w-[30rem] h-80">
-        <div className="header my-4 text-center relative">
+      <div class=" h-80 w-[26rem] mx-auto bg-gray-100 rounded-xl shadow-2xl">
+        <div class="flex items-center p-3">
+          <div class="px-1">
+            <span class="w-4 h-4 rounded-full inline-block bg-[green] cursor-pointer"></span>
+          </div>
+          <div class="px-1">
+            <span class="w-4 h-4 rounded-full inline-block bg-[red] cursor-pointer"></span>
+          </div>
+          <div class="px-1">
+            <span class="w-4 h-4 rounded-full inline-block bg-[blue] cursor-pointer"></span>
+          </div>
+        </div>
+        <div className="header text-center relative">
           <h1 className="text-xl font-bold">Total Goals</h1>
           <div className="absolute bottom-2 right-36 h-6 w-6 text-xs rounded-full bg-green-500 text-white flex justify-center items-center">
             {totalGoals}
           </div>
         </div>
         <div
-          className="grid-container mx-5 my-5 h-48 overflow-y-scroll grid grid-cols-1 gap-2 place-items-center text-white "
+          className="grid-container mx-5 my-4 h-48 overflow-y-scroll grid grid-cols-1 gap-2 place-items-center text-white "
           style={{ scrollbarWidth: "none" }}
         >
           {categorizedGoals.map((goal) => (
             <div
               key={goal.title}
-              className={`item p-4 w-72 border rounded-md shadow-2xl bg-${
+              className={`relative group  cursor-pointer group overflow-hidden shadow-2xl h-[11.5rem] w-72  rounded-2xl hover:duration-700 duration-700 bg-${
                 goal.progress === "On Track"
                   ? "green-500"
                   : goal.progress === "Off Track (Funding Available)"
@@ -68,31 +79,39 @@ export default function GoalsAside({ totalGoals }) {
                   : "gray-400"
               } border-gray-300`}
             >
-              <h3 className="text-lg font-semibold">{goal.progress}</h3>
-              <p className="text-sm font-serif">
-                {goal.title} - {goal.amount}
-              </p>
-              <p className="text-xs font-serif italic">{goal.description}</p>
-              <div>
+              <div class={`w-72 h-72  text-white p-2`}>
+                <div class="flex flex-row justify-between text-2xl">
+                  {goal.progress}
+                </div>
+                <div class="  text-lg font-serif">
+                  {goal.description} - ${goal.amount}
+                </div>
+              </div>
+              <div class="absolute bg-gray-50  -bottom-24 w-72 p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                <span class="text-gray-800 font-bold text-xl">
+                  {goal.title}
+                </span>
+                <p class="text-neutral-800">
+                  <input
+                    type="range"
+                    id={`progress-${goal.title}`}
+                    min="0"
+                    max="100"
+                    value={estimateProgress(goal)}
+                    onChange={(e) =>
+                      updateGoalProgress(goal.title, e.target.value)
+                    }
+                  />
+                </p>
                 <label
                   htmlFor={`progress-${goal.title}`}
-                  className="font-bold text-lg"
+                  className="font-bold text-lg text-black"
                 >
                   Estimated Progress:{" "}
                   <div className="font-medium text-lg font-serif">
                     {estimateProgress(goal)}%
                   </div>
                 </label>
-                <input
-                  type="range"
-                  id={`progress-${goal.title}`}
-                  min="0"
-                  max="100"
-                  value={estimateProgress(goal)}
-                  onChange={(e) =>
-                    updateGoalProgress(goal.title, e.target.value)
-                  }
-                />
               </div>
             </div>
           ))}

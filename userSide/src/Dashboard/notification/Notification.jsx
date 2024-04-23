@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../GlobalData/globalContext";
-import { notificationIcon } from "../GlobalData/Icons";
+import { deleteIcon, notificationIcon } from "../GlobalData/Icons";
 
 export default function Notification({
   message,
@@ -10,31 +10,28 @@ export default function Notification({
 }) {
   const { user } = useGlobalContext();
   return (
-    <li>
-      <a
-        href="#"
-        class="items-center  p-3 flex hover:bg-gray-100  dark:hover:bg-gray-700"
+    <div class="rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-row w-full hover:shadow-2xl transition-all duration-500 shadow-lg">
+      <div class="h-full w-[50%] bg-green-300 absolute left-[0%] top-full z-[-1] group-hover:-translate-y-full duration-[400ms] delay-[50ms]"></div>
+      <div class="h-full w-[50%] bg-pink-300 absolute left-[50%] bottom-full z-[-1] group-hover:translate-y-full duration-[400ms] delay-[200ms]"></div>
+      <div class="text-gray-500 group-hover:scale-125 transition-all">
+        <div className="h-10 w-10 bg-black text-white flex justify-center items-center rounded-full">
+          {notificationIcon}
+        </div>
+      </div>
+      <div class="group-hover:pb-8 transition-all duration-500 delay-200 mx-2">
+        <h1 class="font-semibold text-gray-700">{user.name}</h1>
+        <p class="text-gray-500 text-sm">{createdAt}</p>
+      </div>
+      <button
+        onClick={() => deleteNotification(id)}
+        className="btn absolute top-4 right-8"
       >
-        <div class="mx-3 text-xl bg-[#07271f] text-white w-10 h-10 rounded-full flex justify-center items-center">{notificationIcon}</div>
-        <div>
-          <div class="text-lg font-normal text-gray-600 dark:text-gray-400">
-            <span class="font-bold text-gray-900 dark:text-white ">
-              {user.name}
-            </span>{" "}
-            - <span>Added Notification</span>{" "}
-          </div>
-          <span class="inline-flex items-center text-base font-normal text-gray-500 dark:text-gray-400 ">
-            {message}
-          </span>
-          <div>{createdAt}</div>
-        </div>
-        <div
-          onClick={() => deleteNotification(id)}
-          className="ml-auto mr-8 font-medium text-red-600 dark:text-red-500 hover:underline"
-        >
-          Remove
-        </div>
-      </a>
-    </li>
+        {deleteIcon}
+      </button>
+      <div class="flex transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute justify-self-start">
+        {/* content */}
+        <p className="ml-10">{message}</p>
+      </div>
+    </div>
   );
 }

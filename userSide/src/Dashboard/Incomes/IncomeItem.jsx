@@ -6,7 +6,9 @@ import {
   circle,
   clothing,
   comment,
+  deleteIcon,
   dollar,
+  editIcon,
   expense,
   expenses,
   food,
@@ -99,14 +101,20 @@ export default function IncomeItem({
           {dollar}
           {amount}
         </td>
-        <td class="px-6 py-4">
-          <a
+        <td class="px-2 py-4">
+          <button
             href="#"
-            class="font-medium text-red-600 dark:text-red-500 hover:underline"
+            class="btn font-medium text-red-600 dark:text-red-500 hover:underline"
             onClick={() => deleteItem(id)}
           >
-            Remove
-          </a>
+            {deleteIcon}
+          </button>
+          <button
+            href="#"
+            class="btn font-medium text-red-600 dark:text-red-500 hover:underline mx-2"
+          >
+            {editIcon}
+          </button>
         </td>
       </tr>
     </>

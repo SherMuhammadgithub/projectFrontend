@@ -32,3 +32,5 @@ export const expense = <i className="fa-solid fa-money-bill-wave-alt"></i>
 export const goalIcon = <i className="fa-solid fa-bullseye"></i>
 export const historyIcon = <i className="fa-solid fa-history"></i>
 export const notificationIcon = <i className="fa-solid fa-bell"></i>
+export const deleteIcon = <i className="fa-solid fa-trash"></i>
+export const editIcon = <i className="fa-solid fa-pencil"></i>
