@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   bitcoin,
   book,
@@ -29,58 +29,9 @@ export default function IncomeItem({
   title,
   amount,
   date,
-  category,
   description,
   deleteItem,
-  indicatorColor,
-  type,
 }) {
-  const categoryIcon = () => {
-    switch (category) {
-      case "salary":
-        return money;
-      case "freelancing":
-        return freelance;
-      case "investments":
-        return stocks;
-      case "stocks":
-        return users;
-      case "bitcoin":
-        return bitcoin;
-      case "bank":
-        return card;
-      case "youtube":
-        return yt;
-      case "other":
-        return piggy;
-      default:
-        return "";
-    }
-  };
-
-  const expenseCatIcon = () => {
-    switch (category) {
-      case "education":
-        return book;
-      case "groceries":
-        return food;
-      case "health":
-        return medical;
-      case "subscriptions":
-        return tv;
-      case "takeaways":
-        return takeaway;
-      case "clothing":
-        return clothing;
-      case "travelling":
-        return freelance;
-      case "other":
-        return circle;
-      default:
-        return "";
-    }
-  };
-
   return (
     <>
       <tr class="bg-white border-b text-base  dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -101,19 +52,13 @@ export default function IncomeItem({
           {dollar}
           {amount}
         </td>
-        <td class="px-2 py-4">
+        <td class="px-6 py-4">
           <button
             href="#"
             class="btn font-medium text-red-600 dark:text-red-500 hover:underline"
             onClick={() => deleteItem(id)}
           >
             {deleteIcon}
-          </button>
-          <button
-            href="#"
-            class="btn font-medium text-red-600 dark:text-red-500 hover:underline mx-2"
-          >
-            {editIcon}
           </button>
         </td>
       </tr>

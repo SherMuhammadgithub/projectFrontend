@@ -10,7 +10,7 @@ export default function GoalsAside({ totalGoals }) {
     );
 
     const targetCompletion = 100;
-    return Math.min(targetCompletion, (totalBalance() / goal.amount) * 100); // Ensures progress doesn't exceed 100%
+    return Math.min(targetCompletion, (totalBalance() / goal.amount) * 100);
   };
 
   const categorizeGoal = (goal) => {
@@ -69,7 +69,7 @@ export default function GoalsAside({ totalGoals }) {
           {categorizedGoals.map((goal) => (
             <div
               key={goal.title}
-              className={`relative group  cursor-pointer group overflow-hidden shadow-2xl h-[11.5rem] w-72  rounded-2xl hover:duration-700 duration-700 bg-${
+              className={`relative group  cursor-pointer group overflow-hidden shadow-lg h-[11.5rem] w-72  rounded-2xl hover:duration-700 duration-700 bg-${
                 goal.progress === "On Track"
                   ? "green-500"
                   : goal.progress === "Off Track (Funding Available)"

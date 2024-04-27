@@ -20,16 +20,19 @@ export const GlobalProvider = ({ children }) => {
    * to a server and handles the response accordingly.
    */
   const addIncome = async (income) => {
-    console.log(income);
+    var success = false;
     const response = await axios
       .post(`${BASE_URL}add-income`, income)
       .catch((err) => {
         setError(err.response.data.message);
         alert(err.response.data.message);
+        return success;
       });
     if (response && response.data) {
       alert("Income Added Successfully");
       getIncomes();
+      success = true;
+      return success;
     }
   };
 
@@ -75,15 +78,19 @@ export const GlobalProvider = ({ children }) => {
    * to a server and handles the response accordingly.
    */
   const addExpense = async (expense) => {
+    var success = false;
     const response = await axios
       .post(`${BASE_URL}add-expense`, expense)
       .catch((err) => {
         setError(err.response.data.message);
         alert(err.response.data.message);
+        return success;
       });
     if (response && response.data) {
       alert("Expense Added Successfully");
       getExpenses();
+      success = true;
+      return success;
     }
   };
   /**
@@ -110,6 +117,19 @@ export const GlobalProvider = ({ children }) => {
   const deleteExpenses = async (id) => {
     const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
     getExpenses();
+  };
+
+  const updateExpense = async (expense) => {
+    const response = await axios
+      .put(`${BASE_URL}update-expense`, expense)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+      });
+    if (response && response.data) {
+      alert("Expense Updated Successfully");
+      getExpenses();
+    }
   };
 
   /**
@@ -235,21 +255,25 @@ export const GlobalProvider = ({ children }) => {
     }
   };
   const addGoal = async (goal) => {
+    var success = false;
     const response = await axios
       .post(`${BASE_URL}add-goal`, goal)
       .catch((err) => {
         setError(err.response.data.message);
         alert(err.response.data.message);
+        return success;
       });
     if (response && response.data) {
       alert("Goal Added Successfully");
       getGoals();
+      success = true;
+      return success;
     }
   };
- /**
-  * The `deleteGoal` function sends a DELETE request to the server to delete a goal with the specified
-  * ID, then reloads the page to update the chart.
-  */
+  /**
+   * The `deleteGoal` function sends a DELETE request to the server to delete a goal with the specified
+   * ID, then reloads the page to update the chart.
+   */
   const deleteGoal = async (id) => {
     const response = await axios.delete(`${BASE_URL}delete-goal/${id}`);
     getGoals();
@@ -314,6 +338,7 @@ export const GlobalProvider = ({ children }) => {
         goals,
         addGoal,
         deleteGoal,
+        updateExpense,
       }}
     >
       {children}

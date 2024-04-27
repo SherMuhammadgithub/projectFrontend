@@ -123,7 +123,7 @@ export default function Income() {
               </p>
             ) : (
               incomes.map((income) => {
-                const { id, title, amount, date, category, description, type } =
+                const { id, title, amount, date, category_id, description, type } =
                   income;
                 return (
                   <IncomeItem
@@ -134,7 +134,7 @@ export default function Income() {
                     amount={amount}
                     date={dateFormat(date)}
                     type={type}
-                    category={category}
+                    category_id={category_id}
                     indicatorColor="var(--color-green)"
                     deleteItem={deleteIncome}
                   />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../GlobalData/globalContext";
 export default function Form() {
-  const { addIncome, user, categories,sendNotification } = useGlobalContext();
+  const { addIncome, user, categories, sendNotification } = useGlobalContext();
   const [input, setInput] = useState({
     user_id: "",
     title: "",
@@ -14,15 +14,17 @@ export default function Form() {
   const handleChange = (name) => (e) => {
     setInput({ ...input, [name]: e.target.value, user_id: user.id });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const incomeData = {
       ...input,
       amount: Number(input.amount), // convert amount to a number
     };
     console.log(incomeData);
-    addIncome(incomeData);
-    createNotification(`${title} as Income was added`);
+    const success = await addIncome(incomeData);
+    if (success) {
+      createNotification(`${title} as Income was added`);
+    }
     setInput({
       user_id: user.id,
       title: "",
@@ -32,13 +34,13 @@ export default function Form() {
       description: "",
     });
   };
-const createNotification = (message) => {
+  const createNotification = (message) => {
     const notification = {
       user_id: user.id,
       message: message,
     };
     sendNotification(notification);
-  }
+  };
 
   return (
     <section className=" flex-col  p-10 text-black ">

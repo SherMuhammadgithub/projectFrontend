@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../GlobalData/globalContext";
 export default function GoalsForm() {
   // craete annobject to store the input values
-    
-  const { addGoal, user,categories,sendNotification } = useGlobalContext();
+
+  const { addGoal, user, categories, sendNotification } = useGlobalContext();
   const [input, setInput] = useState({
-    user: "",
+    user_id: "",
     title: "",
     amount: "",
     category_id: "",
@@ -15,14 +15,16 @@ export default function GoalsForm() {
   const handleChange = (name) => (e) => {
     setInput({ ...input, [name]: e.target.value, user_id: user.id });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const goalsData = {
       ...input,
       amount: Number(input.amount),
     };
-    addGoal(goalsData);
-    creatNotification(`${title} as Goals was added`);
+    const success = await addGoal(goalsData);
+    if (success) {
+      creatNotification(`${title} as Goals was added`);
+    }
     setInput({
       title: "",
       amount: "",
@@ -30,13 +32,13 @@ export default function GoalsForm() {
       description: "",
     });
   };
-const creatNotification = (message) => { 
+  const creatNotification = (message) => {
     const notification = {
       user_id: user.id,
       message: message,
     };
     sendNotification(notification);
-  }
+  };
 
   return (
     <section className=" flex-col  p-10 text-black ">
@@ -96,8 +98,8 @@ const creatNotification = (message) => {
             <option value="" disabled>
               Select Option
             </option>
-            {categories.
-              filter((category) => category.type === "Goals")
+            {categories
+              .filter((category) => category.type === "Goals")
               .map((category) => {
                 return (
                   <option key={category.id} value={category.id}>

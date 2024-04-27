@@ -28,7 +28,7 @@ export default function NotificationLayout() {
         >
           <time class="text-lg flex justify-center relative items-center space-x-2 font-semibold text-gray-900 dark:text-white my-8">
             <h1 className="text-center text-xl">Notification</h1>
-            <h1 className=" h-6 w-6 absolute bottom-2 right-[26rem] text-white text-xs bg-green-400 rounded-full flex justify-center items-center">
+            <h1 className=" h-6 w-6 absolute bottom-2 right-[24.7rem] text-white text-xs bg-green-400 rounded-full flex justify-center items-center">
               {notification.length}
             </h1>
           </time>
