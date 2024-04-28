@@ -12,6 +12,7 @@ import SignUp from './Dashboard/SignUp';
 import Dashboard from './Dashboard/Dashboard';
 import MainDashboard from './Dashboard/MainDashboard';
 import GlobalStyles from './styles/GlobalStyles';
+import Feedback from './Dashboard/feedback/Feedback';
 export default function App() {
   return (
     <>
@@ -22,6 +23,8 @@ export default function App() {
           <Route exact path='/login' element={<Login/>} />
           <Route exact path='/SignUp' element={<SignUp/>} />
           <Route exact path='/dashboard' element={<MainDashboard/>} />
+          <Route exact path='/feedback' element={<Feedback/>} />
+          
         </Routes>
       </Router>
     </>

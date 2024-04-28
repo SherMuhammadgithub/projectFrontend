@@ -1,8 +1,8 @@
 import React from "react";
-import { useGlobalContext } from "../utils/globalContext";
+import { useGlobalContext } from "../../utils/globalContext";
 
 export default function Header() {
-  const {users}  = useGlobalContext();
+  const { users } = useGlobalContext();
   return (
     <section>
       <div class="flex flex-wrap -mx-3">
@@ -15,9 +15,7 @@ export default function Header() {
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                       Total Users
                     </p>
-                    <h5 class="mb-0 font-bold">
-                    {users}
-                    </h5>
+                    <h5 class="mb-0 font-bold">{users.length}</h5>
                   </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">
@@ -39,9 +37,7 @@ export default function Header() {
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                       New Users
                     </p>
-                    <h5 class="mb-0 font-bold">
-                      2,300
-                    </h5>
+                    <h5 class="mb-0 font-bold">2,300</h5>
                   </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">
@@ -61,11 +57,9 @@ export default function Header() {
                 <div class="flex-none w-2/3 max-w-full px-3">
                   <div>
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
-                        Subscribers
+                      Subscribers
                     </p>
-                    <h5 class="mb-0 font-bold">
-                      +3,462
-                    </h5>
+                    <h5 class="mb-0 font-bold">+3,462</h5>
                   </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">
@@ -85,11 +79,9 @@ export default function Header() {
                 <div class="flex-none w-2/3 max-w-full px-3">
                   <div>
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
-                     Ratings
+                      Ratings
                     </p>
-                    <h5 class="mb-0 font-bold">
-                      $103,430
-                    </h5>
+                    <h5 class="mb-0 font-bold">$103,430</h5>
                   </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">

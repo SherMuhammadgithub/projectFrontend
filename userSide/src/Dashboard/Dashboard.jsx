@@ -4,6 +4,7 @@ import { dollar } from "./GlobalData/Icons";
 import Chart from "./Chart";
 import ChartExample from "./Chart";
 import History from "./History";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const {
@@ -116,11 +117,13 @@ export default function Dashboard() {
         </div>
         <div className="bell-icon flex justify-center items-center">
           <h1 className="text-2xl">Support</h1>
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/15184/15184701.png"
-            className="w-14 h-14"
-            alt=""
-          />
+          <Link to="/feedback">
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/15184/15184701.png"
+              className="w-14 h-14"
+              alt=""
+            />
+          </Link>
         </div>
       </div>
       <div className="chartbar-container flex flex-col md:flex-row justify-center items-center mx-16 mt-6 mb-4">
@@ -134,9 +137,7 @@ export default function Dashboard() {
               <p className="text-white text-2xl">${totalIncome()}</p>
             </div>
             {/* card 02 */}
-            <div
-              className="group w-72 rounded-lg bg-red-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_#690303] flex justify-center items-center space-x-10"
-            >
+            <div className="group w-72 rounded-lg bg-red-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_#690303] flex justify-center items-center space-x-10">
               <p className="text-white text-2xl">Expenses</p>
               <p className="text-white text-2xl">${totalExpense()}</p>
             </div>

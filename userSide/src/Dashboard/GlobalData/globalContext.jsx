@@ -270,6 +270,21 @@ export const GlobalProvider = ({ children }) => {
       return success;
     }
   };
+  const addFeedback = async (feedback) => {
+    var success = false;
+    const response = await axios
+      .post(`${BASE_URL}add-feedback`, feedback)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+        return success;
+      });
+    if (response && response.data) {
+      alert("Feedback Added Successfully");
+      success = true;
+      return success;
+    }
+  };
   /**
    * The `deleteGoal` function sends a DELETE request to the server to delete a goal with the specified
    * ID, then reloads the page to update the chart.
@@ -339,6 +354,7 @@ export const GlobalProvider = ({ children }) => {
         addGoal,
         deleteGoal,
         updateExpense,
+        addFeedback,
       }}
     >
       {children}
