@@ -3,7 +3,7 @@ import React from "react";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import styled from "styled-components";
 
-import Logo from "../assets/Svgs/star_white_48dp.svg";
+import Logo from "../assets/Svgs/star.svg";
 import { Link } from "react-router-dom";
 
 const Section = styled.section`

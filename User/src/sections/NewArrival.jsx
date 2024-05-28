@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-
-import img1 from "../assets/Images/tap-here.png";
+import { FaGithub } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 const Section = styled.section`
   min-height: 100vh;
   width: 100%;
   margin: 0 auto;
-  height: 60vh;
 
   display: flex;
   flex-direction: column;
@@ -20,41 +19,7 @@ const Section = styled.section`
   /* background-color: ${(props) => props.theme.text}; */
 `;
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30vw;
-  height: 70vh;
-  box-shadow: 0 0 0 5vw ${(props) => props.theme.text};
-  border: 3px solid black;
-  overflow: hidden;
-  z-index: 11;
 
-  @media (max-width: 70em) {
-    width: 40vw;
-    top: 38%;
-    height: 80vh;
-  }
-
-  @media (max-width: 64em) {
-    width: 50vw;
-    box-shadow: 0 0 0 60vw ${(props) => props.theme.text};
-
-    height: 80vh;
-  }
-  @media (max-width: 48em) {
-    width: 60vw;
-
-    height: 80vh;
-  }
-  @media (max-width: 30em) {
-    width: 80vw;
-
-    height: 60vh;
-  }
-`;
 
 const Title = styled(motion.h1)`
   font-size: ${(props) => props.theme.fontxxxl};
@@ -77,210 +42,172 @@ const Title = styled(motion.h1)`
     font-size: ${(props) => props.theme.fontxl};
   }
 `;
-const Text = styled.div`
-  width: 20%;
-  font-size: ${(props) => props.theme.fontlg};
-  font-weight: 300;
-  position: absolute;
-  padding: 2rem;
-  top: 0;
-  right: 0;
-  z-index: 11;
 
-  @media (max-width: 48em) {
-    display: none;
-  }
-`;
 
-const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 5rem 0;
-
-  h2 {
-    cursor: pointer;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    z-index: 5;
-  }
-`;
-const Photos = ({ img, name }) => {
-  return (
-    <Item>
-      <img width="400" height="600" src={img} alt={name} />
-      <h2>{name}</h2>
-    </Item>
-  );
-};
 
 const NewArrival = () => {
+  const teamData = [
+    {
+      id: 1,
+      name: "Sher Muhammad",
+      role: "Full Stack Engineer",
+      img: "https://hrcdn.net/s3_pub/hr-avatars/fdeb4eed-2858-4e1a-8523-e420f93eb4e9/150x150.png",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-app",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Hamid Riaz",
+      role: "backend Engineer",
+      img: "https://media.licdn.com/dms/image/D4D03AQG4PrtIG26MLg/profile-displayphoto-shrink_400_400/0/1706786666813?e=1722470400&v=beta&t=a4Insz6QEEvdW8c8WOrzExJeKPgXYRK062Z4G2AvPnk",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Ahemd Butt",
+      role: "Frontend Engineer",
+      img: "https://media.licdn.com/dms/image/D4D03AQEsrB3E6s_LYg/profile-displayphoto-shrink_800_800/0/1701533843029?e=1722470400&v=beta&t=BdfS9QBxlHI4KDNaIgKgJSFa6_MMxIojy91TqWUOWKo",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Sumaira Hafeez",
+      role: "Front End Engineer",
+      img: "https://media.licdn.com/dms/image/D5603AQFmkHMalVkWnQ/profile-displayphoto-shrink_100_100/0/1694165865307?e=1722470400&v=beta&t=YYeNL49OLFt1CCST_EiW5wAveoY6rboggCuzTfWcZlI",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "Muhammad Uzair",
+      role: "Graphics Designer",
+      img: "https://media.licdn.com/dms/image/D5603AQGSIYmQP8ePOg/profile-displayphoto-shrink_400_400/0/1716174267132?e=1722470400&v=beta&t=nybA9hHEb3FRXHSQFE6nNEejmRhbiV8a4zHqw_PDHt4",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: "Arwa",
+      role: "Front End Engineer",
+      img: "https://media.licdn.com/dms/image/D4D03AQGiENCPKjGegA/profile-displayphoto-shrink_800_800/0/1694242471614?e=1722470400&v=beta&t=awiZJAu3QGK1NCMcxbZmsnj_2S7Y0Ue2QKShXu6K6qU",
+      socialLinks: [
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaGithub />,
+          iconId: 1,
+        },
+        {
+          href: "https://github.com/SherMuhammadgithub/xpense-tracker-ap",
+          icon: <FaFacebook />,
+          iconId: 2,
+        },
+      ],
+    },
+  ];
   return (
-    <Section className="new-arrival">
+    <Section className="new-arrival bg-white p-4">
       <Title
         data-scroll
         data-scroll-speed="-2"
         data-scroll-direction="horizontal"
       >
-        Team
+        Meet
       </Title>
 
-      <div className="flex  relative space-x-4 justify-center items-center w-full">
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            1. Sher Muhammad<span></span>
-          </span>
+      <section className="bg-white dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+          <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              Our team
+            </h2>
+            <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+              Meet our dedicated team of professionals who are the driving force
+              behind our success.
+            </p>
+          </div>
+          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center w-full">
+            {teamData.map((item) => (
+              <div className="text-center text-gray-500 dark:text-gray-400" key={item.id}>
+                <img
+                  className="mx-auto mb-4 w-36 h-36 rounded-full object-fill"
+                  src={item.img}
+                  alt="Joseph Avatar"
+                />
+                <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <li key={item.id} className="list-none">
+                    <a href="/">{item.name}</a>
+                  </li>
+                </h3>
+                <p>{item.role}</p>
+                <ul className="flex justify-center mt-4 space-x-4">
+                  {item.socialLinks.map((link) => (
+                    <li className="list-none" key={link.iconId}>
+                      <a
+                        href={link.href}
+                        className="text-[#07271f] hover:text-green-500 dark:hover:text-white"
+                      >
+                        {link.icon}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            2. Hamid Khan<span></span>
-          </span>
-        </div>
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            3. Ahmed Khan<span></span>
-          </span>
-        </div>
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            4. Sumaira<span></span>
-          </span>
-        </div>
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            5. Arwa<span></span>
-          </span>
-        </div>
-        <div class="group">
-          <button>
-            <svg
-              class="w-32 aspect-square rounded-full hover:scale-125 duration-200 hover:stroke-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 64 64"
-            >
-              <path
-                data-name="layer1"
-                d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                stroke-miterlimit="10"
-                stroke-width="2"
-              ></path>
-            </svg>
-          </button>
-          <span
-            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-  z-20 origin-left scale-0 px-3 rounded-lg border 
-  border-gray-300 bg-white py-2 text-sm font-bold
-  shadow-md transition-all duration-300 ease-in-out 
-  group-hover:scale-100"
-          >
-            6. Uzair Khan <span></span>
-          </span>
-        </div>
-      </div>
+      </section>
     </Section>
   );
 };

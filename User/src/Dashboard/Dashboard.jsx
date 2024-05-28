@@ -49,7 +49,7 @@ export default function Dashboard() {
   };
   return (
     <section className="animate__animated animate__fadeIn">
-      <div className="header flex items-center justify-between p-6  border border-b-white">
+      <div className="header flex items-center justify-between p-6 border border-b-white">
         <div className="">
           <h1 className="text-4xl text-white">
             Welcome{" "}
@@ -126,11 +126,11 @@ export default function Dashboard() {
           </Link>
         </div>
       </div>
-      <div className="chartbar-container flex flex-col md:flex-row justify-center items-center mx-16 mt-6 mb-4">
-        <div className="col01 w-[75%] h-auto flex justify-center items-center">
+      <div className="chartbar-container flex flex-col md:flex-row space-x-10 justify-center items-center p-6">
+        <div className="col01  h-auto flex justify-center items-center">
           <ChartExample />
         </div>
-        <div className="col02 w-[40%] h-auto">
+        <div className="col02  h-auto w-[28rem]">
           <div className="flex flex-col justify-center items-center space-y-4">
             <div className="group w-72 rounded-lg bg-green-500 p-8 transition relative duration-300 cursor-pointer hover:translate-y-[3px] hover:shadow-[0_-8px_0px_0px_green] flex justify-center items-center space-x-10">
               <p className="text-white text-2xl">Incomes</p>
@@ -150,12 +150,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="recent-activity mx-16 flex justify-center items-center space-x-16 mb-4 relative">
+      <div className="recent-activity mx-16 flex justify-center items-center space-x-16 my-8 relative">
         <div
-          className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 overflow-y-scroll h-44"
-          style={{ scrollbarWidth: "none" }}
+          className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
         >
-          <time className="text-lg font-semibold text-gray-900  dark:text-white">
+          <time className="text-lg font-semibold text-gray-900  dark:text-white"> 
             <h1 className="text-2xl font-bold m-4">Recent Activity</h1>
           </time>
           <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700 ">

@@ -41,9 +41,12 @@ export default function ExpenseFrom() {
     };
     sendNotification(notification);
   };
-
+  const changeActivePage = () => {
+    localStorage.setItem("active", 7);
+    window.location.reload();
+  };
   return (
-    <section className=" flex-col  p-10 text-black ">
+    <section className=" flex-col  p-10 text-black bg-white">
       <div className="header flex justify-center items-center my-2">
         <h1 className="font-protest-riot underline text-lg">
           Add <span className="text-[#03d47c] ">Expenses</span>
@@ -99,7 +102,7 @@ export default function ExpenseFrom() {
           ></textarea>
         </div>
 
-        <div className="selects input-control md:space-x-4">
+        <div className="selects input-control flex md:space-x-4">
           <select
             required
             value={category_id}
@@ -120,6 +123,11 @@ export default function ExpenseFrom() {
                 );
               })}
           </select>
+          <div className="add-category">
+            <button className="btn" onClick={changeActivePage}>
+              Add Category
+            </button>
+          </div>
         </div>
 
         <div className="text-sm flex justify-end items-end">

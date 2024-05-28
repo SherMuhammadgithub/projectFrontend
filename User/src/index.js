@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { GlobalProvider } from './Dashboard/GlobalData/globalContext';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { GlobalProvider } from "./Dashboard/GlobalData/globalContext";
 // import reportWebVitals from './reportWebVitals';
-
+import "./index.css";
 ReactDOM.render(
   <React.StrictMode>
     <GlobalProvider>
-    <App />
+      <App />
     </GlobalProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -9,6 +9,7 @@ import Goals from "./Goals/Goals";
 import GoalsLayout from "./Goals/GoalsLayout";
 import Profile from "./Profile/Profile";
 import NotificationLayout from "./notification/NotificationLayout";
+import Category from "./category/Category";
 
 export default function MainDashboard() {
   const displayData = () => {
@@ -23,8 +24,12 @@ export default function MainDashboard() {
         return <Expense />;
       case 5:
         return <NotificationLayout />;
-      default:
+      case 6:
         return <Profile />;
+      case 7:
+        return <Category />;
+      default:
+        return <Dashboard />;
     }
   };
   // Retrieve active state from local storage, default to 1 if not found

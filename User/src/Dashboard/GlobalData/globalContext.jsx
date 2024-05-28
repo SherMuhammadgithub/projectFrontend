@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const BASE_URL = "https://xpensetracker1.azurewebsites.net/api/v1/";
+// const BASE_URL = "https://xpensetracker1.azurewebsites.net/api/v1/";
+const BASE_URL = "http://localhost:3000/api/v1/";
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
@@ -115,7 +116,15 @@ export const GlobalProvider = ({ children }) => {
    * specific ID and then refreshes the list of expenses.
    */
   const deleteExpenses = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
+    const response = await axios
+      .delete(`${BASE_URL}delete-expense/${id}`)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+      });
+    if (response && response.data) {
+      alert("Expense Deleted Successfully");
+    }
     getExpenses();
   };
 
@@ -193,17 +202,7 @@ export const GlobalProvider = ({ children }) => {
       window.location.reload();
     }
   };
-  const addCategory = async (category) => {
-    const response = await axios
-      .post(`${BASE_URL}add-category`, category)
-      .catch((err) => {
-        setError(err.response.data.message);
-        alert(err.response.data.message);
-      });
-    if (response && response.data) {
-      alert("Category Added Successfully");
-    }
-  };
+
   const getCategories = async () => {
     try {
       const response = await axios.get(`${BASE_URL}get-category`);
@@ -242,7 +241,16 @@ export const GlobalProvider = ({ children }) => {
     }
   };
   const deleteNotification = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-notification/${id}`);
+    const response = await axios
+      .delete(`${BASE_URL}delete-notification/${id}`)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+      });
+    if (response && response.data) {
+      alert("Notification Deleted Successfully");
+    }
+
     getNotification();
   };
 
@@ -290,7 +298,15 @@ export const GlobalProvider = ({ children }) => {
    * ID, then reloads the page to update the chart.
    */
   const deleteGoal = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-goal/${id}`);
+    const response = await axios
+      .delete(`${BASE_URL}delete-goal/${id}`)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+      });
+    if (response && response.data) {
+      alert("Goal Deleted Successfully");
+    }
     getGoals();
     getIncomes();
     getExpenses();
@@ -322,6 +338,36 @@ export const GlobalProvider = ({ children }) => {
 
     return history.slice(0, 3);
   };
+  // adding and deleting category
+  const deleteCategory = async (id) => {
+    try {
+      const response = await axios.delete(`${BASE_URL}delete-category/${id}`);
+      if (response && response.data) alert("Category Deleted Successfully");
+      getCategory();
+    } catch (error) {
+      alert(error);
+    }
+  };
+  const getCategory = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}get-category`);
+      setCategories(response.data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+  const addCategory = async (category) => {
+    const response = await axios
+      .post(`${BASE_URL}add-category`, category)
+      .catch((err) => {
+        setError(err.response.data.message);
+        alert(err.response.data.message);
+      });
+    if (response && response.data) {
+      getCategory();
+      alert("Category Added Successfully");
+    }
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -343,6 +389,8 @@ export const GlobalProvider = ({ children }) => {
         transactionHistory,
         getCategories,
         addCategory,
+        deleteCategory,
+        getCategory,
         categories,
         getNotification,
         notification,
@@ -355,6 +403,7 @@ export const GlobalProvider = ({ children }) => {
         deleteGoal,
         updateExpense,
         addFeedback,
+        error,
       }}
     >
       {children}

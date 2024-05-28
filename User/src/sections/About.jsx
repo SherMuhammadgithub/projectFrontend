@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-
-import img4 from '../assets/Images/imgx.jpg';
-import smallimg02 from "../assets/Images/wallet.png"
-import smallimg01 from "../assets/Images/imgx1.png"
+import img4 from "../assets/Images/imgx.jpg";
+import smallimg02 from "../assets/Images/wallet.png";
+import smallimg01 from "../assets/Images/imgx1.png";
 
 const Section = styled.section`
-height: 130vh;
+  height: 130vh;
   width: 80vw;
   margin: 0 auto;
 
@@ -144,22 +143,33 @@ const About = () => {
       >
         About Us
       </Title>
-      <Left data-scroll 
-    data-scroll-sticky  data-scroll-target ="#fixed-target">
-      <p data-scroll
-        data-scroll-speed="-2"
-        data-scroll-direction="horizontal">We&apos;re Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ipsam fugiat temporibus facilis illo quam laborum ab atque ipsum rem? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, eius?
-        <br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quaerat velit error odit unde fugit amet, eveniet ad atque iusto? 
-        <br />
-        <br />
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut optio quam et, ad cum neque? Aperiam quod illo officia, incidunt asperiores animi aliquid suscipit adipisci dicta similique in veritatis hic. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, blanditiis!.</p>
-        
+      <Left data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
+        <p
+          data-scroll
+          data-scroll-speed="-2"
+          data-scroll-direction="horizontal"
+        >
+          We&apos;understand the importance of managing your finances
+          effectively. Our expense tracker app is designed to help you keep
+          track of your spending with ease. Stay on top of your budget and make
+          informed financial decisions effortlessly.
+          <br />
+          Track your expenses, categorize your spending, and view detailed
+          reports. Gain insights into your financial habits and take control of
+          your money.
+          <br />
+          <br />
+          Our app offers intuitive features to simplify your financial
+          management. Set budgets, monitor expenses, and achieve your financial
+          goals. Experience the convenience of having all your financial data in
+          one place. Our user-friendly interface ensures a smooth and
+          hassle-free experience
+        </p>
       </Left>
 
       <Right>
         <img width="400" height="600" src={img4} alt="About Us" />
-      
+
         <img
           width="400"
           height="600"

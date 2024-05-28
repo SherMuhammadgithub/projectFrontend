@@ -19,7 +19,7 @@ const NavContainer = styled(motion.div)`
 
   
   @media (max-width: 40em) {
-    top: ${(props) => (props.click ? '0' : `calc(-50vh - 4rem)`)};
+    top: ${(props) => (props.click ? '0' : `calc(-50vh)`)};
 
   }
 `;

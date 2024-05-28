@@ -27,10 +27,12 @@ export default function NotificationLayout() {
           style={{ scrollbarWidth: "none" }}
         >
           <time class="text-lg flex justify-center relative items-center space-x-2 font-semibold text-gray-900 dark:text-white my-8">
-            <h1 className="text-center text-xl">Notification</h1>
-            <h1 className=" h-6 w-6 absolute bottom-2 right-[24.7rem] text-white text-xs bg-green-400 rounded-full flex justify-center items-center">
-              {notification.length}
-            </h1>
+            <div className="text-center text-xl relative">
+              <h1>Notifications</h1>
+              <h1 className=" h-6 w-6 absolute top-[-3%] right-[-10%] text-white text-xs bg-green-400 rounded-full flex justify-center items-center">
+                {notification.length}
+              </h1>
+            </div>
           </time>
           <div className="flex justify-center items-center w-full my-4">
             <ol class="flex flex-col space-y-4 items-center justify-center w-full">
