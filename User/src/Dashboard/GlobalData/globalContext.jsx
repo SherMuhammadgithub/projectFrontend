@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:8000/api/v1/";
+const BASE_URL = "https://xpensetracker1.azurewebsites.net/api/v1/";
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
