@@ -7,7 +7,6 @@ import Logo from "../assets/Svgs/star.svg";
 import { Link } from "react-router-dom";
 
 const Section = styled.section`
-  min-height: 100vh;
   width: 100%;
    margin: 5rem auto;
 
