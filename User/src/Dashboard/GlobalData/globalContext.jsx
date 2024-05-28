@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { createContext, useContext, useState } from "react";
 
-const BASE_URL = "https://xpensetracker1.azurewebsites.net/api/v1/";
-// const BASE_URL = "http://localhost:3000/api/v1/";
+// const BASE_URL = "https://xpensetracker1.azurewebsites.net/api/v1/";
+const BASE_URL = "http://localhost:3000/api/v1/";
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
@@ -195,11 +195,9 @@ export const GlobalProvider = ({ children }) => {
         alert(err.response.data.message);
       });
     if (response && response.data) {
-      alert("User Updated Successfully");
+      alert("User will be updated in a few seconds😊.");
       setUser(response.data);
       localStorage.setItem("users", JSON.stringify(response.data.user));
-      // reload the page
-      window.location.reload();
     }
   };
 

@@ -41,10 +41,6 @@ export default function Form() {
     };
     sendNotification(notification);
   };
-  const changeActivePage = () => {
-    localStorage.setItem("active", 7);
-    window.location.reload();
-  };
   return (
     <section className=" flex-col  p-10 text-black bg-white ">
       <div className="header flex justify-center items-center my-2">
@@ -124,11 +120,6 @@ export default function Form() {
                 );
               })}
           </select>
-          <div className="add-category">
-            <button className="btn" onClick={changeActivePage}>
-              Add Category
-            </button>
-          </div>
         </div>
 
         <div className="text-sm flex justify-end items-end">
