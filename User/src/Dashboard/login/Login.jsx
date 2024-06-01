@@ -5,6 +5,7 @@ import Logo from "../../components/Logo";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const { signIn } = useGlobalContext();
   const [input, setInput] = useState({
     email: "",
@@ -15,23 +16,25 @@ export default function Login() {
     setInput({ ...input, [name]: e.target.value });
   };
   const handleSubmit = async (e) => {
+    setLoading(true); // Set loading to true
     e.preventDefault();
     console.log(input);
     const success = await signIn(input);
     if (success) {
       navigate("/dashboard"); // redirect to home page
     }
+    setLoading(false); // Set loading to false after the request is complete
     setInput({
       email: "",
       password: "",
     });
   };
   return (
-    <section class="flex flex-col-reverse md:flex-row max-h-screen">
-      <div class="bg-gray-200  w-[50%] flex items-center justify-center">
-        <div class="w-[44%] pt-12">
+    <section class="flex flex-col-reverse md:flex-row max-h-screen bg-gray-200">
+      <div class=" w-full md:w-[50%] flex items-center justify-center">
+        <div class=" w-full md:w-[44%] p-12 md:pt-12 md:px-0">
           <Logo />
-          <h1 class="text-3xl md:text-4xl font-bold  text-center">
+          <h1 class="text-3xl md:text-4xl font-bold  text-center my-6">
             Welcome To Xpense
           </h1>
           <h2 class="text-xl md:text-2xl font-semibold leading-tight mt-6 text-gray-800 text-center">
@@ -72,11 +75,14 @@ export default function Login() {
                   Forgot Password?
                 </a>
               </div>
-              <button   
+              <button
                 type="submit"
-                class="w-full block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg px-4 py-3 mt-6 btn-hover btn-focus"
+                class={`w-full block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg px-4 py-3 mt-6 btn-hover btn-focus ${
+                  loading ? "cursor-not-allowed" : "cursor-pointer"
+                }`}
+                disabled={loading}
               >
-                Log In
+                {loading ? "logging in...." : "Log In"}
               </button>
             </form>
           </div>
