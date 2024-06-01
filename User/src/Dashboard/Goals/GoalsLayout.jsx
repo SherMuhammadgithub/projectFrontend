@@ -23,7 +23,7 @@ export default function GoalsLayout() {
         </h1>
         <p className="text-lg">Track Your Goals Progress here 😃</p>
       </header>
-      <div className="flex justify-center items-center w-full space-x-10 my-8">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full space-y-4 space-x-0 md:space-y-0 md:space-x-10 my-8">
         <div className="chart-container">
           <GoalsChart />
         </div>
@@ -32,7 +32,7 @@ export default function GoalsLayout() {
         </div>
       </div>
       <footer>
-        <div className="goals-container bg-transparent  p-10 h-60 rounded-md mx-10">
+        <div className="goals-container bg-transparent p-2 md:p-10 h-60 rounded-md mx-2 md:mx-10">
           <header className="flex justify-center items-center  ">
             <div className="title">
               <h1
@@ -64,10 +64,10 @@ export default function GoalsLayout() {
             </div>
           </header>
           <div
-            class="relative overflow-x-auto overflow-y-scroll h-[7.8rem] shadow-2xl sm:rounded-lg mx-32"
+            class="relative overflow-x-auto overflow-scroll shadow-2xl sm:rounded-lg mx-2 md:mx-32 my-4"
             style={{ scrollbarWidth: "none" }}
           >
-            <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 relative">
+            <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 relative rounded-md">
               <thead
                 class="text-base
          text-white uppercase bg-[#07271f] sticky top-0 dark:bg-gray-700 dark:text-gray-400"

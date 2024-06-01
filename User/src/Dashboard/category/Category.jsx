@@ -40,7 +40,7 @@ export default function Category() {
       </div>
 
       <div
-        className="relative my-10 overflow-x-auto overflow-y-scroll h-96 shadow-2xl sm:rounded-lg mx-32"
+        className="relative overflow-x-auto overflow-scroll  shadow-2xl sm:rounded-lg mx-2 md:mx-32 my-4"
         style={{ scrollbarWidth: "none" }}
       >
         <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 relative">

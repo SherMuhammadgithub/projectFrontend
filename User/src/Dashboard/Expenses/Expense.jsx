@@ -51,15 +51,15 @@ export default function Expense() {
       <div className="filter flex justify-center items-center space-x-4 my-6">
         <select
           value={category}
-          className="px-4 py-2 rounded-md"
+          className="px-4 py-2 rounded-md hidden md:block"
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="" disabled>
             Select Option
           </option>
           {/* Options for selecting category */}
-          {categories.
-            filter((category) => category.type === "Expense")
+          {categories
+            .filter((category) => category.type === "Expense")
             .map((category) => {
               return (
                 <option key={category.id} value={category.id}>
@@ -90,7 +90,7 @@ export default function Expense() {
         </div>
       </div>
 
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-32">
+      <div class="relative overflow-x-auto overflow-scroll  shadow-2xl sm:rounded-lg mx-2 md:mx-32 my-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead class="text-base text-white uppercase bg-[#07271f] dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -113,7 +113,7 @@ export default function Expense() {
           </thead>
           <tbody>
             {expense.length === 0 ? (
-              <p className="flex justify-center items-center w-full py-10 text-xl text-gray-500">
+              <p className="flex justify-center items-center w-full p-4 text-xl text-gray-500">
                 No expenses to display
               </p>
             ) : (

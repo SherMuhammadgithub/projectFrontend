@@ -55,7 +55,7 @@ function GoalsChart() {
         tension: 0.2,
       },
       {
-        label: "Goals (Target)",
+        label: "Goals",
         data: goalTargetData,
         backgroundColor: "blue",
         tension: 0.2,
@@ -68,7 +68,7 @@ function GoalsChart() {
   return (
     <div className="chart-container shadow-2xl">
      
-        <div className="bg-white rounded-md w-[38rem] h-80 p-4 flex justify-center items-center">
+        <div className="bg-white rounded-md w-auto h-auto md:w-[38rem] md:h-80 p-4 flex justify-center items-center">
           <Line data={data} />
         </div>
       

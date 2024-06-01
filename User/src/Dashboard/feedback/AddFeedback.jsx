@@ -32,7 +32,7 @@ export default function AddFeedback() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white px-20 py-10 shadow-2xl rounded-md"
+      className="bg-white p-10 py-10 shadow-2xl rounded-md w-full"
     >
       {/* Mood Selection */}
       <div className="mb-6">
@@ -80,7 +80,7 @@ export default function AddFeedback() {
         <label className="block text-sm font-bold text-gray-700">
           Rate the quality of the product (1-5)
         </label>
-        <div className="mt-2 flex items-center space-x-4">
+        <div className="mt-2 flex flex-wrap space-y-2 space-x-3 items-center md:space-x-4 md:space-y-0">
           {[1, 2, 3, 4, 5].map((rating) => (
             <React.Fragment key={rating}>
               <input

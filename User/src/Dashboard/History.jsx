@@ -13,10 +13,10 @@ function History() {
       {history.map((item) => {
         const { id, title, amount, description } = item;
         return (
-          <li key={id}>
+          <li key={id} className="">
             <a
               href="#"
-              class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="items-center flex md:block p-3  hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <div className="mx-3 text-xl bg-[#07271f] text-white w-10 h-10 rounded-full flex justify-center items-center">{historyIcon}</div>
               <div>

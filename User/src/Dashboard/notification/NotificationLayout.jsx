@@ -21,9 +21,9 @@ export default function NotificationLayout() {
         </h1>
         <p className="text-lg">See your Notifications here 😃</p>
       </header>
-      <main className="recent-activity  flex justify-center items-center space-x-16 mb-4 ">
+      <main className="recent-activity  flex justify-center items-center space-x-0 md:space-x-16 mb-4 ">
         <div
-          class="div h-[30rem] w-full  m-auto rounded-[1em] relative group p-2 z-0 overflow-y-scroll mx-40"
+          class=" w-full  m-auto rounded-[1em] relative group p-2 z-0 overflow-y-scroll mx-2 md:mx-40"
           style={{ scrollbarWidth: "none" }}
         >
           <time class="text-lg flex justify-center relative items-center space-x-2 font-semibold text-gray-900 dark:text-white my-8">

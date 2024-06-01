@@ -54,7 +54,7 @@ export default function Income() {
       <div className="filter flex justify-center items-center space-x-4 my-6">
         <select
           value={category}
-          className="px-4 py-2 rounded-md"
+          className="px-4 py-2 rounded-md hidden md:block"
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="" disabled>
@@ -92,7 +92,7 @@ export default function Income() {
         </div>
       </div>
       {/* Income Content */}
-      <div class="relative overflow-x-auto shadow-2xl sm:rounded-lg mx-32">
+      <div class="relative overflow-x-auto overflow-scroll  shadow-2xl sm:rounded-lg mx-2 md:mx-32 my-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead
             class="text-base
@@ -118,7 +118,7 @@ export default function Income() {
           </thead>
           <tbody>
             {incomes.length === 0 ? (
-              <p className="flex justify-center items-center w-full py-10 text-xl text-gray-500">
+              <p className="text-center  text-xl text-gray-500 p-4">
                 No incomes to display
               </p>
             ) : (

@@ -13,8 +13,8 @@ export default function Profile() {
         </h1>
         <p className="text-lg">Update your photo and personal details here</p>
       </header>
-      <div className="container my-10 flex justify-center items-center w-full space-x-10">
-        <div className="aside-content">
+      <div className="container my-10 flex justify-center items-center w-full space-y-6 space-x-0 md:space-y-0 md:space-x-10">
+        <div className="aside-content hidden md:block">
           <ProfileAside />
         </div>
 

@@ -150,7 +150,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="recent-activity md:mx-16 mx-2 flex justify-center items-center space-x-16 my-8 relative">
+      <div className="recent-activity md:mx-16 mx-4 flex justify-center items-center space-x-16 my-8 relative">
         <div className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900  dark:text-white">
             <h1 className="text-2xl font-bold m-4">Recent Activity</h1>
