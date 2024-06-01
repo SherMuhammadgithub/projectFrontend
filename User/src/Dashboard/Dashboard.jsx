@@ -49,9 +49,9 @@ export default function Dashboard() {
   };
   return (
     <section className="animate__animated animate__fadeIn">
-      <div className="header flex items-center justify-between p-6 border border-b-white">
+      <div className="header flex items-center justify-between p-4">
         <div className="">
-          <h1 className="text-4xl text-white">
+          <h1 className="text-xl md:text-4xl text-white">
             Welcome{" "}
             <span
               className="text-[#07271f]"
@@ -61,7 +61,7 @@ export default function Dashboard() {
             </span>
           </h1>
         </div>
-        <div className="">
+        <div className="hidden">
           <form className="flex items-center max-w-sm mx-auto">
             <label for="simple-search" className="sr-only">
               Search
@@ -116,17 +116,17 @@ export default function Dashboard() {
           </form>
         </div>
         <div className="bell-icon flex justify-center items-center">
-          <h1 className="text-2xl">Support</h1>
+          <h1 className="text-xl md:text-2xl">Support</h1>
           <Link to="/feedback">
             <img
               src="https://cdn-icons-png.flaticon.com/128/15184/15184701.png"
-              className="w-14 h-14"
+              className="w-10 md:w-14 h-auto"
               alt=""
             />
           </Link>
         </div>
       </div>
-      <div className="chartbar-container flex flex-col md:flex-row space-x-10 justify-center items-center p-6">
+      <div className="chartbar-container flex flex-col md:flex-row space-x-0 space-y-6 md:space-y-0 md:space-x-10 justify-center items-center p-6">
         <div className="col01  h-auto flex justify-center items-center">
           <ChartExample />
         </div>
@@ -150,21 +150,19 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="recent-activity mx-16 flex justify-center items-center space-x-16 my-8 relative">
-        <div
-          className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
-        >
-          <time className="text-lg font-semibold text-gray-900  dark:text-white"> 
+      <div className="recent-activity md:mx-16 mx-2 flex justify-center items-center space-x-16 my-8 relative">
+        <div className=" col01 p-5 w-full border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+          <time className="text-lg font-semibold text-gray-900  dark:text-white">
             <h1 className="text-2xl font-bold m-4">Recent Activity</h1>
           </time>
           <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700 ">
             <History />
           </ol>
         </div>
-        <div className=" absolute bottom-0 right-6">
+        <div className=" absolute top-0 right-0 md:top-0 md:bottom-0 md:right-6">
           <img
             src="https://cdn-icons-png.flaticon.com/256/6009/6009244.png"
-            className=""
+            className="w-32 md:w-auto h-auto"
             alt=""
           />
         </div>

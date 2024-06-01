@@ -55,8 +55,8 @@ function Chart() {
 
   return (
     <div className="chart-container shadow-2xl">
-      <div className="bg-white rounded-md w-[38rem] h-80 p-4 flex justify-center items-center">
-        <Line data={data} />
+      <div className="bg-white rounded-md w-auto h-auto md:w-[38rem] md:h-80 p-4 flex justify-center items-center">
+        <Line data={data} className=""/>
       </div>
     </div>
   );
